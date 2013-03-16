@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+4283cff0eff94b3318fd613897c60992 moc_ShareCameraQt.cxx
+467b72bba31788a2b3b3248ab1bda405 moc_ui_ShareCameraQt.cxx
+e9d0cfc2984df445f8159e50acdd0d73 ui_ShareCameraQt.h
