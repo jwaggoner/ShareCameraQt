@@ -135,6 +135,8 @@ vtkCubeSource.h
 -
 vtkSmartPointer.h
 /Users/michaelguarino/ShareCameraQt/vtkSmartPointer.h
+vtkCamera.h
+-
 vtkPolyDataReader.h
 -
 QFileDialog
@@ -657,6 +659,10 @@ vtkPropCollection.h
 /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkPropCollection.h
 vtkActor.h
 /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkActor.h
+
+/Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkCamera.h
+vtkObject.h
+/Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkObject.h
 
 /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkMapper.h
 vtkAbstractMapper3D.h

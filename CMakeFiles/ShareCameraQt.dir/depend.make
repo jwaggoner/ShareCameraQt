@@ -98,6 +98,7 @@ CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkAbstractMapper3D.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkActor.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkActorCollection.h
+CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkCamera.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkMapper.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkPolyDataMapper.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: /Users/michaelguarino/VTK/VTK5.10.1/Rendering/vtkProp3D.h

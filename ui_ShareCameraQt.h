@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ShareCameraQt.ui'
 **
-** Created: Sat Mar 16 14:46:23 2013
+** Created: Sat Mar 16 15:47:20 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -34,7 +34,6 @@ public:
     QVTKWidget *qvtkWidgetLeft;
     QVTKWidget *qvtkWidgetRight;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
 
     void setupUi(QMainWindow *ShareCameraQt)
     {
@@ -80,9 +79,6 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(90, 610, 114, 32));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(380, 610, 114, 32));
         ShareCameraQt->setCentralWidget(centralwidget);
 
         retranslateUi(ShareCameraQt);
@@ -99,7 +95,6 @@ public:
         actionHelp->setText(QApplication::translate("ShareCameraQt", "Help", 0, QApplication::UnicodeUTF8));
         actionSave->setText(QApplication::translate("ShareCameraQt", "Save", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("ShareCameraQt", "Browse", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("ShareCameraQt", "Reset", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
