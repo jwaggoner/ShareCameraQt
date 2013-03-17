@@ -49,31 +49,33 @@ ShareCameraQt::ShareCameraQt()
     
     // Add Actor to renderer
     rightRenderer->AddActor(cubeActor);
-    
+    this->qvtkWidgetLeft = new QVTKWidget(this->gridLayoutWidget);
+    this->qvtkWidgetRight = new QVTKWidget(this->gridLayoutWidget);
     // VTK/Qt wedded
     this->qvtkWidgetLeft->GetRenderWindow()->AddRenderer(leftRenderer);
     this->qvtkWidgetRight->GetRenderWindow()->AddRenderer(rightRenderer);
     
     rightRenderer->ResetCamera();
     leftRenderer->ResetCamera();
-    
-    //rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
-    this->qvtkWidgetRight->GetRenderWindow()->Render();
+    rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
+    this->gridLayout->addWidget(this->qvtkWidgetLeft);
+    this->gridLayout->addWidget(this->qvtkWidgetRight);
+    //this->qvtkWidgetRight->GetRenderWindow()->Render();
     this->qvtkWidgetLeft->GetRenderWindow()->Render();
-
+    this->qvtkWidgetRight->GetRenderWindow()->Render();
     
   // Set up action signals and slots
   connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
-  this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
-  //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
+  //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
+  this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
 
 }
 
 void ShareCameraQt::ModifiedHandler() 
 {
   
-  this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera()->ShallowCopy(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera());
+  //this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera()->ShallowCopy(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera());
   //this->qvtkWidgetLeft->GetRenderWindow()->Render();
     this->qvtkWidgetRight->GetRenderWindow()->Render();
 }
@@ -116,23 +118,16 @@ void ShareCameraQt::on_pushButton_clicked()
        rightRenderer->AddActor(cubeActor);
 
        // VTK/Qt wedded
-       vtkRenderer *first = this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer();
-       while (first != NULL) {
-           this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(first);
-           first = this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetNextItem();
-       }
+       this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer());
        this->qvtkWidgetLeft->GetRenderWindow()->AddRenderer(leftRenderer);
-       first = this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer();
-       while (first != NULL) {
-           this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(first);
-           first = this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetNextItem();
-       }
+      
+       this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer());
        this->qvtkWidgetRight->GetRenderWindow()->AddRenderer(rightRenderer);
 
        rightRenderer->ResetCamera();
        leftRenderer->ResetCamera();
 
-       //rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
+       rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
        this->qvtkWidgetRight->GetRenderWindow()->Render();
         //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
 

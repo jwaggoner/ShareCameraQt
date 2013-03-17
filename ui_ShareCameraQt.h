@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ShareCameraQt.ui'
 **
-** Created: Sat Mar 16 15:47:20 2013
+** Created: Sun Mar 17 16:41:06 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,9 +14,11 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
+#include <QtGui/QScrollArea>
 #include <QtGui/QWidget>
 #include "QVTKWidget.h"
 
@@ -31,9 +33,13 @@ public:
     QAction *actionHelp;
     QAction *actionSave;
     QWidget *centralwidget;
+    QPushButton *pushButton;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
     QVTKWidget *qvtkWidgetLeft;
     QVTKWidget *qvtkWidgetRight;
-    QPushButton *pushButton;
 
     void setupUi(QMainWindow *ShareCameraQt)
     {
@@ -70,15 +76,23 @@ public:
         actionSave->setIcon(icon4);
         centralwidget = new QWidget(ShareCameraQt);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        qvtkWidgetLeft = new QVTKWidget(centralwidget);
-        qvtkWidgetLeft->setObjectName(QString::fromUtf8("qvtkWidgetLeft"));
-        qvtkWidgetLeft->setGeometry(QRect(10, 20, 511, 541));
-        qvtkWidgetRight = new QVTKWidget(centralwidget);
-        qvtkWidgetRight->setObjectName(QString::fromUtf8("qvtkWidgetRight"));
-        qvtkWidgetRight->setGeometry(QRect(540, 20, 441, 541));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(90, 610, 114, 32));
+        scrollArea = new QScrollArea(centralwidget);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setGeometry(QRect(69, 39, 881, 501));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 879, 499));
+        gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(0, 0, 881, 501));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        scrollArea->setWidget(scrollAreaWidgetContents);
         ShareCameraQt->setCentralWidget(centralwidget);
 
         retranslateUi(ShareCameraQt);
