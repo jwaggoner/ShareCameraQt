@@ -64,11 +64,11 @@ ShareCameraQt::ShareCameraQt()
     this->qvtkWidgetLeft->GetRenderWindow()->Render();
     this->qvtkWidgetRight->GetRenderWindow()->Render();
     
-  // Set up action signals and slots
-  connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
-
-  //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
-  this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
+    // Set up action signals and slots
+    connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
+    this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
+    this->qvtkWidgetRight->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
+    //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
 
 }
 
@@ -78,6 +78,7 @@ void ShareCameraQt::ModifiedHandler()
   //this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera()->ShallowCopy(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera());
   //this->qvtkWidgetLeft->GetRenderWindow()->Render();
     this->qvtkWidgetRight->GetRenderWindow()->Render();
+    this->qvtkWidgetLeft->GetRenderWindow()->Render();
 }
 
 void ShareCameraQt::slotExit() 

@@ -66,10 +66,6 @@ stdarg.h
 QtCore/qstringbuilder.h
 -
 
-/Library/Frameworks/QtGui.framework/Headers/QApplication
-qapplication.h
-/Library/Frameworks/QtGui.framework/Headers/qapplication.h
-
 /Library/Frameworks/QtGui.framework/Headers/QFileDialog
 qfiledialog.h
 /Library/Frameworks/QtGui.framework/Headers/qfiledialog.h
@@ -85,28 +81,6 @@ qmainwindow.h
 /Library/Frameworks/QtGui.framework/Headers/QSortFilterProxyModel
 qsortfilterproxymodel.h
 /Library/Frameworks/QtGui.framework/Headers/qsortfilterproxymodel.h
-
-/Library/Frameworks/QtGui.framework/Headers/qapplication.h
-QtCore/qcoreapplication.h
--
-QtGui/qwindowdefs.h
--
-QtCore/qpoint.h
--
-QtCore/qsize.h
--
-QtGui/qcursor.h
--
-QtGui/qdesktopwidget.h
--
-QtGui/qwidget.h
--
-QtGui/qpalette.h
--
-QtGui/qrgb.h
--
-QtGui/qtransportauth_qws.h
--
 
 /Library/Frameworks/QtGui.framework/Headers/qfiledialog.h
 QtCore/qdir.h
@@ -175,18 +149,6 @@ QMainWindow
 -
 ui_ShareCameraQt.h
 /Users/michaelguarino/ShareCameraQt/ui_ShareCameraQt.h
-
-/Users/michaelguarino/ShareCameraQt/ShareCameraQtDriver.cxx
-QApplication
--
-ShareCameraQt.h
-/Users/michaelguarino/ShareCameraQt/ShareCameraQt.h
-
-/Users/michaelguarino/ShareCameraQt/moc_ShareCameraQt.cxx
-ShareCameraQt.h
-/Users/michaelguarino/ShareCameraQt/ShareCameraQt.h
-
-/Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx
 
 /Users/michaelguarino/ShareCameraQt/ui_ShareCameraQt.h
 QtCore/QVariant
