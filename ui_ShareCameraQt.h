@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ShareCameraQt.ui'
 **
-** Created: Sun Mar 17 16:41:06 2013
+** Created: Fri Mar 29 22:51:59 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -21,7 +21,7 @@
 #include <QtGui/QScrollArea>
 #include <QtGui/QWidget>
 #include "QVTKWidget.h"
-
+#include <QVector>
 QT_BEGIN_NAMESPACE
 
 class Ui_ShareCameraQt
@@ -38,8 +38,7 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QVTKWidget *qvtkWidgetLeft;
-    QVTKWidget *qvtkWidgetRight;
+    QVector<QVTKWidget *> *widgetList;
 
     void setupUi(QMainWindow *ShareCameraQt)
     {
@@ -91,10 +90,11 @@ public:
         gridLayoutWidget->setGeometry(QRect(0, 0, 881, 501));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         gridLayout->setContentsMargins(0, 0, 0, 0);
         scrollArea->setWidget(scrollAreaWidgetContents);
         ShareCameraQt->setCentralWidget(centralwidget);
-
+        widgetList = new QVector<QVTKWidget*>();
         retranslateUi(ShareCameraQt);
 
         QMetaObject::connectSlotsByName(ShareCameraQt);

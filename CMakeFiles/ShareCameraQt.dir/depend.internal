@@ -3,13 +3,24 @@
 
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o
  /Library/Frameworks/QtCore.framework/Headers/QAbstractItemModel
+ /Library/Frameworks/QtCore.framework/Headers/QDir
+ /Library/Frameworks/QtCore.framework/Headers/QFileInfo
+ /Library/Frameworks/QtCore.framework/Headers/QFileInfoList
+ /Library/Frameworks/QtCore.framework/Headers/QFileInfoListIterator
  /Library/Frameworks/QtCore.framework/Headers/QObject
  /Library/Frameworks/QtCore.framework/Headers/QPointer
  /Library/Frameworks/QtCore.framework/Headers/QString
+ /Library/Frameworks/QtCore.framework/Headers/QStringList
+ /Library/Frameworks/QtCore.framework/Headers/QVector
+ /Library/Frameworks/QtCore.framework/Headers/QVectorIterator
  /Library/Frameworks/QtCore.framework/Headers/qabstractitemmodel.h
+ /Library/Frameworks/QtCore.framework/Headers/qdir.h
+ /Library/Frameworks/QtCore.framework/Headers/qfileinfo.h
  /Library/Frameworks/QtCore.framework/Headers/qobject.h
  /Library/Frameworks/QtCore.framework/Headers/qpointer.h
  /Library/Frameworks/QtCore.framework/Headers/qstring.h
+ /Library/Frameworks/QtCore.framework/Headers/qstringlist.h
+ /Library/Frameworks/QtCore.framework/Headers/qvector.h
  /Library/Frameworks/QtGui.framework/Headers/QFileDialog
  /Library/Frameworks/QtGui.framework/Headers/QItemSelection
  /Library/Frameworks/QtGui.framework/Headers/QMainWindow
@@ -115,6 +126,8 @@ CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o
  /Users/michaelguarino/VTK/vtk-build/vtkConfigure.h
  /Users/michaelguarino/VTK/vtk-build/vtkToolkits.h
 CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o
+ /Library/Frameworks/QtCore.framework/Headers/QVector
+ /Library/Frameworks/QtCore.framework/Headers/qvector.h
  /Library/Frameworks/QtGui.framework/Headers/QApplication
  /Library/Frameworks/QtGui.framework/Headers/QMainWindow
  /Library/Frameworks/QtGui.framework/Headers/qapplication.h
@@ -145,6 +158,8 @@ CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o
  /Users/michaelguarino/VTK/vtk-build/vtkConfigure.h
  /Users/michaelguarino/VTK/vtk-build/vtkToolkits.h
 CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o
+ /Library/Frameworks/QtCore.framework/Headers/QVector
+ /Library/Frameworks/QtCore.framework/Headers/qvector.h
  /Library/Frameworks/QtGui.framework/Headers/QMainWindow
  /Library/Frameworks/QtGui.framework/Headers/qmainwindow.h
  /Users/michaelguarino/ShareCameraQt/ShareCameraQt.h

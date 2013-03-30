@@ -13,72 +13,82 @@
 #include <vtkCamera.h>
 #include <vtkPolyDataReader.h>
 #include <QFileDialog>
+#include <QVectorIterator>
 #include <QString>
+#include <QStringList>
+#include <QDir>
+#include <QFileInfoList>
+#include <QFileInfoListIterator>
+#include <QFileInfo>
 // Constructor
 ShareCameraQt::ShareCameraQt() 
 {
   this->setupUi(this);
 
-  // Sphere
-    QString inputFilename = QFileDialog::getOpenFileName(this,tr("Open Image"),"~",tr("Image Files (*.vtk)"));
-    QByteArray arr = inputFilename.toLatin1();
-    const char *filename = arr.data();
-    vtkSmartPointer<vtkPolyDataReader> meshReader = vtkSmartPointer<vtkPolyDataReader>::New() ;
-    meshReader->SetFileName ( filename ) ;
-    meshReader->Update () ;
-    vtkSmartPointer<vtkPolyDataMapper> sphereMapper =vtkSmartPointer<vtkPolyDataMapper>::New();
-    sphereMapper->SetInputConnection(meshReader->GetOutputPort());
-    vtkSmartPointer<vtkActor> sphereActor = vtkSmartPointer<vtkActor>::New();
-    sphereActor->SetMapper(sphereMapper);
-    inputFilename = QFileDialog::getOpenFileName(this,tr("Open Image"),"~",tr("Image Files (*.vtk)"));
-    arr = inputFilename.toLatin1();
-    filename = arr.data();
-    vtkSmartPointer<vtkPolyDataReader> meshReader2 = vtkSmartPointer<vtkPolyDataReader>::New() ;
-    meshReader2->SetFileName ( filename );
-    meshReader2->Update ();
-    vtkSmartPointer<vtkPolyDataMapper> cubeMapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-    cubeMapper->SetInputConnection(meshReader2->GetOutputPort());
-    vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
-    cubeActor->SetMapper(cubeMapper);
-    
-    // VTK Renderer
-    vtkSmartPointer<vtkRenderer> leftRenderer = vtkSmartPointer<vtkRenderer>::New();
-    leftRenderer->AddActor(sphereActor);
-    
-    vtkSmartPointer<vtkRenderer> rightRenderer = vtkSmartPointer<vtkRenderer>::New();
-    
-    // Add Actor to renderer
-    rightRenderer->AddActor(cubeActor);
-    this->qvtkWidgetLeft = new QVTKWidget(this->gridLayoutWidget);
-    this->qvtkWidgetRight = new QVTKWidget(this->gridLayoutWidget);
-    // VTK/Qt wedded
-    this->qvtkWidgetLeft->GetRenderWindow()->AddRenderer(leftRenderer);
-    this->qvtkWidgetRight->GetRenderWindow()->AddRenderer(rightRenderer);
-    
-    rightRenderer->ResetCamera();
-    leftRenderer->ResetCamera();
-    rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
-    this->gridLayout->addWidget(this->qvtkWidgetLeft);
-    this->gridLayout->addWidget(this->qvtkWidgetRight);
-    //this->qvtkWidgetRight->GetRenderWindow()->Render();
-    this->qvtkWidgetLeft->GetRenderWindow()->Render();
-    this->qvtkWidgetRight->GetRenderWindow()->Render();
-    
+    QString dir = QFileDialog::getExistingDirectory(this,tr("Open .vtk Directory"),"~",QFileDialog::ShowDirsOnly);
+    QDir vtkDir(dir);
+    QFileInfoList list = vtkDir.entryInfoList();
+    vtkSmartPointer<vtkRenderer> headRenderer = vtkSmartPointer<vtkRenderer>::New();
+    int root = 0;
+    for ( ;root*root < list.size()-2;root++);
+    int col = 0;
+    int row = 0;
+    for (int j = 0; j < list.size(); j++) {
+        if (j < 2) continue;
+        QString path = list.at(j).absoluteFilePath();
+        QByteArray arr = path.toLatin1();
+        const char *filename = arr.data();
+        vtkSmartPointer<vtkPolyDataReader> meshReader = vtkSmartPointer<vtkPolyDataReader>::New() ;
+        meshReader->SetFileName ( filename ) ;
+        meshReader->Update () ;
+        vtkSmartPointer<vtkPolyDataMapper> mapper =vtkSmartPointer<vtkPolyDataMapper>::New();
+        mapper->SetInputConnection(meshReader->GetOutputPort());
+        vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
+        actor->SetMapper(mapper);
+        if (j == 0) {
+            headRenderer->AddActor(actor);
+            QVTKWidget *next = new QVTKWidget(this->gridLayoutWidget);
+            this->widgetList->append(next);
+            next->GetRenderWindow()->AddRenderer(headRenderer);
+            headRenderer->ResetCamera();
+        } else {
+            vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+            renderer->AddActor(actor);
+            QVTKWidget *next = new QVTKWidget(this->gridLayoutWidget);
+            this->widgetList->append(next);
+            next->GetRenderWindow()->AddRenderer(renderer);
+            renderer->SetActiveCamera(headRenderer->GetActiveCamera());
+            renderer->ResetCamera();
+        }
+
+    }
+
+
+    for (int i = 0; i < this->widgetList->size();i++) {
+        this->gridLayout->addWidget(this->widgetList->value(i),row,col);
+        if (col == root) {
+            col = 0;
+            row++;
+        } else {
+            col++;
+        }
+    }
+    for (int i = 0; i < this->widgetList->size();i++) {
+        this->widgetList->value(i)->GetRenderWindow()->Render();
+    }
+
     // Set up action signals and slots
     connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
-    this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
-    this->qvtkWidgetRight->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
-    //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
+    for (int i = 0; i < this->widgetList->size(); i++)
+        this->widgetList->value(i)->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
 
 }
 
 void ShareCameraQt::ModifiedHandler() 
 {
-  
-  //this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera()->ShallowCopy(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->GetActiveCamera());
-  //this->qvtkWidgetLeft->GetRenderWindow()->Render();
-    this->qvtkWidgetRight->GetRenderWindow()->Render();
-    this->qvtkWidgetLeft->GetRenderWindow()->Render();
+    for (int i = 0; i < this->widgetList->size();i++) {
+        this->widgetList->value(i)->GetRenderWindow()->Render();
+    }
 }
 
 void ShareCameraQt::slotExit() 
@@ -88,49 +98,64 @@ void ShareCameraQt::slotExit()
 
 void ShareCameraQt::on_pushButton_clicked()
 {
-       QString inputFilename = QFileDialog::getOpenFileName(this,tr("Open Image"),"~",tr("Image Files (*.vtk)"));
-       QByteArray arr = inputFilename.toLatin1();
-       const char *filename = arr.data();
-       vtkSmartPointer<vtkPolyDataReader> meshReader = vtkSmartPointer<vtkPolyDataReader>::New() ;
-       meshReader->SetFileName ( filename ) ;
-       meshReader->Update () ;
-       vtkSmartPointer<vtkPolyDataMapper> sphereMapper =vtkSmartPointer<vtkPolyDataMapper>::New();
-       sphereMapper->SetInput(meshReader->GetOutput());
-       vtkSmartPointer<vtkActor> sphereActor = vtkSmartPointer<vtkActor>::New();
-       sphereActor->SetMapper(sphereMapper);
-       inputFilename = QFileDialog::getOpenFileName(this,tr("Open Image"),"~",tr("Image Files (*.vtk)"));
-       arr = inputFilename.toLatin1();
-       filename = arr.data();
-       vtkSmartPointer<vtkPolyDataReader> meshReader2 = vtkSmartPointer<vtkPolyDataReader>::New() ;
-       meshReader2->SetFileName ( filename );
-       meshReader2->Update ();
-       vtkSmartPointer<vtkPolyDataMapper> cubeMapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-       cubeMapper->SetInput(meshReader2->GetOutput());
-       vtkSmartPointer<vtkActor> cubeActor = vtkSmartPointer<vtkActor>::New();
-       cubeActor->SetMapper(cubeMapper);
+    for (int i = 0; i < this->widgetList->size(); i++) {
+        this->gridLayout->removeWidget(this->widgetList->value(i));
+        delete this->widgetList->value(i);
+    }
+    this->widgetList->clear();
+    QString dir = QFileDialog::getExistingDirectory(this,tr("Open .vtk Directory"),"~",QFileDialog::ShowDirsOnly);
+    QDir vtkDir(dir);
+    QFileInfoList list = vtkDir.entryInfoList();
+    vtkSmartPointer<vtkRenderer> headRenderer = vtkSmartPointer<vtkRenderer>::New();
+    int root = 0;
+    for ( ;root*root < list.size()-2;root++);
+    int col = 0;
+    int row = 0;
+    for (int j = 0; j < list.size(); j++) {
+        if (j < 2) continue;
+        QString path = list.at(j).absoluteFilePath();
+        QByteArray arr = path.toLatin1();
+        const char *filename = arr.data();
+        vtkSmartPointer<vtkPolyDataReader> meshReader = vtkSmartPointer<vtkPolyDataReader>::New() ;
+        meshReader->SetFileName ( filename ) ;
+        meshReader->Update () ;
+        vtkSmartPointer<vtkPolyDataMapper> mapper =vtkSmartPointer<vtkPolyDataMapper>::New();
+        mapper->SetInputConnection(meshReader->GetOutputPort());
+        vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
+        actor->SetMapper(mapper);
+        if (j == 0) {
+            headRenderer->AddActor(actor);
+            QVTKWidget *next = new QVTKWidget(this->gridLayoutWidget);
+            this->widgetList->append(next);
+            next->GetRenderWindow()->AddRenderer(headRenderer);
+            headRenderer->ResetCamera();
+        } else {
+            vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+            renderer->AddActor(actor);
+            QVTKWidget *next = new QVTKWidget(this->gridLayoutWidget);
+            this->widgetList->append(next);
+            next->GetRenderWindow()->AddRenderer(renderer);
+            renderer->SetActiveCamera(headRenderer->GetActiveCamera());
+            renderer->ResetCamera();
+        }
 
-       // VTK Renderer
-       vtkSmartPointer<vtkRenderer> leftRenderer = vtkSmartPointer<vtkRenderer>::New();
-       leftRenderer->AddActor(sphereActor);
+    }
+    for (int i = 0; i < this->widgetList->size();i++) {
+        this->gridLayout->addWidget(this->widgetList->value(i),row,col);
+        if (col == root) {
+            col = 0;
+            row++;
+        } else {
+            col++;
+        }
+    }
+    for (int i = 0; i < this->widgetList->size();i++) {
+        this->widgetList->value(i)->GetRenderWindow()->Render();
+    }
 
-       vtkSmartPointer<vtkRenderer> rightRenderer = vtkSmartPointer<vtkRenderer>::New();
-
-       // Add Actor to renderer
-       rightRenderer->AddActor(cubeActor);
-
-       // VTK/Qt wedded
-       this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(this->qvtkWidgetLeft->GetRenderWindow()->GetRenderers()->GetFirstRenderer());
-       this->qvtkWidgetLeft->GetRenderWindow()->AddRenderer(leftRenderer);
-      
-       this->qvtkWidgetLeft->GetRenderWindow()->RemoveRenderer(this->qvtkWidgetRight->GetRenderWindow()->GetRenderers()->GetFirstRenderer());
-       this->qvtkWidgetRight->GetRenderWindow()->AddRenderer(rightRenderer);
-
-       rightRenderer->ResetCamera();
-       leftRenderer->ResetCamera();
-
-       rightRenderer->SetActiveCamera(leftRenderer->GetActiveCamera());
-       this->qvtkWidgetRight->GetRenderWindow()->Render();
-        //this->qvtkWidgetLeft->GetRenderWindow()->AddObserver(vtkCommand::AnyEvent, this, &ShareCameraQt::ModifiedHandler);
-
+    // Set up action signals and slots
+    connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
+    for (int i = 0; i < this->widgetList->size(); i++)
+        this->widgetList->value(i)->GetRenderWindow()->AddObserver(vtkCommand::ModifiedEvent, this, &ShareCameraQt::ModifiedHandler);
 }
 

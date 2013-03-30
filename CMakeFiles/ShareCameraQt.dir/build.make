@@ -57,15 +57,15 @@ moc_ShareCameraQt.cxx: ShareCameraQt.h
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating moc_ShareCameraQt.cxx"
 	/Developer/Tools/Qt/moc -I/Users/michaelguarino/VTK/vtk-build -I/Users/michaelguarino/VTK/vtk-build/Common -I/Users/michaelguarino/VTK/vtk-build/Utilities -I/Users/michaelguarino/VTK/vtk-build/VolumeRendering -I/Users/michaelguarino/VTK/vtk-build/Rendering -I/Users/michaelguarino/VTK/vtk-build/Charts -I/Users/michaelguarino/VTK/vtk-build/Chemistry -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkalglib -I/Users/michaelguarino/VTK/VTK5.10.1/Infovis -I/Users/michaelguarino/VTK/VTK5.10.1/Geovis -I/Users/michaelguarino/VTK/VTK5.10.1/Views -I/Users/michaelguarino/VTK/VTK5.10.1/VolumeRendering -I/Users/michaelguarino/VTK/VTK5.10.1/Hybrid -I/Users/michaelguarino/VTK/VTK5.10.1/Widgets -I/Users/michaelguarino/VTK/VTK5.10.1/Rendering -I/Users/michaelguarino/VTK/VTK5.10.1/Charts -I/Users/michaelguarino/VTK/VTK5.10.1/Chemistry -I/Users/michaelguarino/VTK/VTK5.10.1/Rendering/Testing/Cxx -I/Users/michaelguarino/VTK/VTK5.10.1/IO -I/Users/michaelguarino/VTK/VTK5.10.1/Imaging -I/Users/michaelguarino/VTK/VTK5.10.1/Graphics -I/Users/michaelguarino/VTK/VTK5.10.1/GenericFiltering -I/Users/michaelguarino/VTK/VTK5.10.1/Filtering -I/Users/michaelguarino/VTK/VTK5.10.1/Common -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities -I/Users/michaelguarino/VTK/VTK5.10.1/Common/Testing/Cxx -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtknetcdf -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtknetcdf -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtknetcdf/include -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtklibproj4 -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtklibproj4 -I/Users/michaelguarino/VTK/vtk-build/Utilities/DICOMParser -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/DICOMParser -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkfreetype/include -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkfreetype/include -I/Users/michaelguarino/VTK/vtk-build/Utilities/LSDyna -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/LSDyna -I/Users/michaelguarino/VTK/vtk-build/Utilities/MaterialLibrary -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/MaterialLibrary -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkmetaio -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkmetaio -I/Users/michaelguarino/VTK/vtk-build/Utilities/verdict -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/verdict -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5 -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5 -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5/src -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5/hl/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5/hl/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/utf8/source -I/Users/michaelguarino/VTK/VTK5.10.1/GUISupport/Qt -I/Users/michaelguarino/VTK/vtk-build/GUISupport/Qt -I/Users/michaelguarino/VTK/VTK5.10.1/GUISupport/Qt/Chart -I/Users/michaelguarino/VTK/vtk-build/GUISupport/Qt/Chart -I/Users/michaelguarino/VTK/VTK5.10.1/Infovis -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkalglib -I/Users/michaelguarino/VTK/VTK5.10.1/Geovis -I/Users/michaelguarino/VTK/VTK5.10.1/Views -I/usr/include -F/Library/Frameworks -I/Library/Frameworks/QtGui.framework/Headers -I/Library/Frameworks/QtCore.framework/Headers -I/Users/michaelguarino/ShareCameraQt -I/Users/michaelguarino/ShareCameraQt -DQT_GUI_LIB -DQT_CORE_LIB -o /Users/michaelguarino/ShareCameraQt/moc_ShareCameraQt.cxx /Users/michaelguarino/ShareCameraQt/ShareCameraQt.h
 
-ui_ShareCameraQt.h: ShareCameraQt.ui
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ui_ShareCameraQt.h"
-	/Developer/Tools/Qt/uic -o /Users/michaelguarino/ShareCameraQt/ui_ShareCameraQt.h /Users/michaelguarino/ShareCameraQt/ShareCameraQt.ui
-
 moc_ui_ShareCameraQt.cxx: ui_ShareCameraQt.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating moc_ui_ShareCameraQt.cxx"
 	/Developer/Tools/Qt/moc -I/Users/michaelguarino/VTK/vtk-build -I/Users/michaelguarino/VTK/vtk-build/Common -I/Users/michaelguarino/VTK/vtk-build/Utilities -I/Users/michaelguarino/VTK/vtk-build/VolumeRendering -I/Users/michaelguarino/VTK/vtk-build/Rendering -I/Users/michaelguarino/VTK/vtk-build/Charts -I/Users/michaelguarino/VTK/vtk-build/Chemistry -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkalglib -I/Users/michaelguarino/VTK/VTK5.10.1/Infovis -I/Users/michaelguarino/VTK/VTK5.10.1/Geovis -I/Users/michaelguarino/VTK/VTK5.10.1/Views -I/Users/michaelguarino/VTK/VTK5.10.1/VolumeRendering -I/Users/michaelguarino/VTK/VTK5.10.1/Hybrid -I/Users/michaelguarino/VTK/VTK5.10.1/Widgets -I/Users/michaelguarino/VTK/VTK5.10.1/Rendering -I/Users/michaelguarino/VTK/VTK5.10.1/Charts -I/Users/michaelguarino/VTK/VTK5.10.1/Chemistry -I/Users/michaelguarino/VTK/VTK5.10.1/Rendering/Testing/Cxx -I/Users/michaelguarino/VTK/VTK5.10.1/IO -I/Users/michaelguarino/VTK/VTK5.10.1/Imaging -I/Users/michaelguarino/VTK/VTK5.10.1/Graphics -I/Users/michaelguarino/VTK/VTK5.10.1/GenericFiltering -I/Users/michaelguarino/VTK/VTK5.10.1/Filtering -I/Users/michaelguarino/VTK/VTK5.10.1/Common -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities -I/Users/michaelguarino/VTK/VTK5.10.1/Common/Testing/Cxx -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtknetcdf -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtknetcdf -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtknetcdf/include -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtklibproj4 -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtklibproj4 -I/Users/michaelguarino/VTK/vtk-build/Utilities/DICOMParser -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/DICOMParser -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkfreetype/include -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkfreetype/include -I/Users/michaelguarino/VTK/vtk-build/Utilities/LSDyna -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/LSDyna -I/Users/michaelguarino/VTK/vtk-build/Utilities/MaterialLibrary -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/MaterialLibrary -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkmetaio -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkmetaio -I/Users/michaelguarino/VTK/vtk-build/Utilities/verdict -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/verdict -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5 -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5 -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5/src -I/Users/michaelguarino/VTK/vtk-build/Utilities/vtkhdf5/hl/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkhdf5/hl/src -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/utf8/source -I/Users/michaelguarino/VTK/VTK5.10.1/GUISupport/Qt -I/Users/michaelguarino/VTK/vtk-build/GUISupport/Qt -I/Users/michaelguarino/VTK/VTK5.10.1/GUISupport/Qt/Chart -I/Users/michaelguarino/VTK/vtk-build/GUISupport/Qt/Chart -I/Users/michaelguarino/VTK/VTK5.10.1/Infovis -I/Users/michaelguarino/VTK/VTK5.10.1/Utilities/vtkalglib -I/Users/michaelguarino/VTK/VTK5.10.1/Geovis -I/Users/michaelguarino/VTK/VTK5.10.1/Views -I/usr/include -F/Library/Frameworks -I/Library/Frameworks/QtGui.framework/Headers -I/Library/Frameworks/QtCore.framework/Headers -I/Users/michaelguarino/ShareCameraQt -I/Users/michaelguarino/ShareCameraQt -DQT_GUI_LIB -DQT_CORE_LIB -o /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx /Users/michaelguarino/ShareCameraQt/ui_ShareCameraQt.h
+
+ui_ShareCameraQt.h: ShareCameraQt.ui
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ui_ShareCameraQt.h"
+	/Developer/Tools/Qt/uic -o /Users/michaelguarino/ShareCameraQt/ui_ShareCameraQt.h /Users/michaelguarino/ShareCameraQt/ShareCameraQt.ui
 
 CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o: CMakeFiles/ShareCameraQt.dir/flags.make
 CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o: moc_ShareCameraQt.cxx
@@ -90,9 +90,32 @@ CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o.provides: CMakeFiles/ShareC
 
 CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o.provides.build: CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o
 
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o: CMakeFiles/ShareCameraQt.dir/flags.make
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o: moc_ui_ShareCameraQt.cxx
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o -c /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx
+
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx > CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i
+
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx -o CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s
+
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires:
+.PHONY : CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
+
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
+	$(MAKE) -f CMakeFiles/ShareCameraQt.dir/build.make CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides.build
+.PHONY : CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides
+
+CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides.build: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o
+
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: CMakeFiles/ShareCameraQt.dir/flags.make
 CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o: ShareCameraQt.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o -c /Users/michaelguarino/ShareCameraQt/ShareCameraQt.cxx
 
@@ -115,7 +138,7 @@ CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o.provides.build: CMakeFiles/Shar
 
 CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o: CMakeFiles/ShareCameraQt.dir/flags.make
 CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o: ShareCameraQtDriver.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o -c /Users/michaelguarino/ShareCameraQt/ShareCameraQtDriver.cxx
 
@@ -136,43 +159,20 @@ CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o.provides: CMakeFiles/Shar
 
 CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o.provides.build: CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o
 
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o: CMakeFiles/ShareCameraQt.dir/flags.make
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o: moc_ui_ShareCameraQt.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/michaelguarino/ShareCameraQt/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o -c /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx
-
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx > CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.i
-
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/michaelguarino/ShareCameraQt/moc_ui_ShareCameraQt.cxx -o CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.s
-
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires:
-.PHONY : CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
-
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
-	$(MAKE) -f CMakeFiles/ShareCameraQt.dir/build.make CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides.build
-.PHONY : CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides
-
-CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.provides.build: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o
-
 # Object files for target ShareCameraQt
 ShareCameraQt_OBJECTS = \
 "CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o" \
+"CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o" \
 "CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o" \
-"CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o" \
-"CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o"
+"CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o"
 
 # External object files for target ShareCameraQt
 ShareCameraQt_EXTERNAL_OBJECTS =
 
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o
+ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o
-ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: CMakeFiles/ShareCameraQt.dir/build.make
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: /Users/michaelguarino/VTK/vtk-build/bin/libvtkCommon.5.10.1.dylib
 ShareCameraQt.app/Contents/MacOS/ShareCameraQt: /Users/michaelguarino/VTK/vtk-build/bin/libvtkFiltering.5.10.1.dylib
@@ -210,9 +210,9 @@ CMakeFiles/ShareCameraQt.dir/build: ShareCameraQt.app/Contents/MacOS/ShareCamera
 .PHONY : CMakeFiles/ShareCameraQt.dir/build
 
 CMakeFiles/ShareCameraQt.dir/requires: CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o.requires
+CMakeFiles/ShareCameraQt.dir/requires: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
 CMakeFiles/ShareCameraQt.dir/requires: CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o.requires
 CMakeFiles/ShareCameraQt.dir/requires: CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o.requires
-CMakeFiles/ShareCameraQt.dir/requires: CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o.requires
 .PHONY : CMakeFiles/ShareCameraQt.dir/requires
 
 CMakeFiles/ShareCameraQt.dir/clean:
@@ -220,8 +220,8 @@ CMakeFiles/ShareCameraQt.dir/clean:
 .PHONY : CMakeFiles/ShareCameraQt.dir/clean
 
 CMakeFiles/ShareCameraQt.dir/depend: moc_ShareCameraQt.cxx
-CMakeFiles/ShareCameraQt.dir/depend: ui_ShareCameraQt.h
 CMakeFiles/ShareCameraQt.dir/depend: moc_ui_ShareCameraQt.cxx
+CMakeFiles/ShareCameraQt.dir/depend: ui_ShareCameraQt.h
 	cd /Users/michaelguarino/ShareCameraQt && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/michaelguarino/ShareCameraQt /Users/michaelguarino/ShareCameraQt /Users/michaelguarino/ShareCameraQt /Users/michaelguarino/ShareCameraQt /Users/michaelguarino/ShareCameraQt/CMakeFiles/ShareCameraQt.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ShareCameraQt.dir/depend
 

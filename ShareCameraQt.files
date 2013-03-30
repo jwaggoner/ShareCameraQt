@@ -35,3 +35,5 @@ ShareCameraQt.h
 ShareCameraQt.ui
 ShareCameraQtDriver.cxx
 ui_ShareCameraQt.h
+qvtkwidgetlist.h
+qvtkwidgetlist.cxx

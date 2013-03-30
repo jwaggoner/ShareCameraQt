@@ -28,5 +28,3 @@ if(VTK_LIBRARIES)
 else()
   target_link_libraries(ShareCameraQt vtkHybrid QVTK vtkViews ${QT_LIBRARIES})
 endif()
-
-ENABLE_TESTING()

@@ -1,11 +1,11 @@
 FILE(REMOVE_RECURSE
   "moc_ShareCameraQt.cxx"
-  "ui_ShareCameraQt.h"
   "moc_ui_ShareCameraQt.cxx"
+  "ui_ShareCameraQt.h"
   "CMakeFiles/ShareCameraQt.dir/moc_ShareCameraQt.cxx.o"
+  "CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o"
   "CMakeFiles/ShareCameraQt.dir/ShareCameraQt.cxx.o"
   "CMakeFiles/ShareCameraQt.dir/ShareCameraQtDriver.cxx.o"
-  "CMakeFiles/ShareCameraQt.dir/moc_ui_ShareCameraQt.cxx.o"
   "ShareCameraQt.pdb"
   "ShareCameraQt.app/Contents/MacOS/ShareCameraQt"
 )
