@@ -1,4 +1,5 @@
 
+
 cmake_minimum_required(VERSION 2.8)
  
 PROJECT(ShareCameraQt)
@@ -29,4 +30,12 @@ else()
   target_link_libraries(ShareCameraQt vtkHybrid QVTK vtkViews ${QT_LIBRARIES})
 endif()
 
-ENABLE_TESTING()
+Enable_Testing()
+add_executable(filePathTest Testing/filePathTest.cxx)
+target_link_libraries(filePathTest ${QT_LIBRARIES} ${VTK_LIBRARIES} QVTK vtkViews vtkHybrid)
+add_test(filePathTest  ${CMAKE_CURRENT_BINARY_DIR}/filePathTest)
+
+
+add_executable(mapperTest Testing/mapper.cxx)
+target_link_libraries(mapperTest ${QT_LIBRARIES} ${VTK_LIBRARIES} QVTK vtkViews vtkHybrid)
+add_test(mapperTest  ${CMAKE_CURRENT_BINARY_DIR}/mapperTest)
